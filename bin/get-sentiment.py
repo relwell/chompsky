@@ -20,10 +20,10 @@ parser.add_option("-n", "--namespace", dest="namespace", default=1, #NS_TALK
 
 (options, args) = parser.parse_args()
 
-conn = SolrConnection('http://search-s10.prod.wikia.net:8983/solr')
-
 if not options.wiki:
     raise Exception('A wiki is required, passed as host name')
+
+conn = SolrConnection('http://search-s10.prod.wikia.net:8983/solr')
 
 query = ["host:'%s'" % (options.wiki)]
 
