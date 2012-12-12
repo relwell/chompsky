@@ -27,20 +27,14 @@ if not options.wiki:
 
 query = ["host:'%s'" % (options.wiki)]
 
-query += ['ns:%d ' % (options.namespace)]
+query += ['ns:%d ' % (int(options.namespace))]
 
-if options.start_date:
-    start = options.start_date + 'T00\:00\:00.000Z' #janky formatting yo
-    if options.end_date:
-        end = options.end_date + 'T00\:00\:00.000Z' #janky formatting again!
-    else:
-        end = '*'
-    query += [' created:[%s TO %s]' % (start, end)]
+if options.start_date or options.end_date:
+    start = options.start_date + 'T00:00:00.000Z' if options.start_date else '*'
+    end = options.end_date + 'T00:00:00.000Z' if options.end_date else '*'
+    query += ['created:[%s TO %s]' % (start, end)]
 
-joinedQuery = ' AND '.join(query)
-print joinedQuery
-
-response = conn.query(joinedQuery, fields=['html_en','nolang_txt','html'])
+response = conn.query(' AND '.join(query), fields=['html_en','nolang_txt','html'])
 paginator = SolrPaginator(response)
 
 print paginator.count, 'results to chomp through...'
