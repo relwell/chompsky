@@ -1,5 +1,5 @@
 ## Chompsky - Wikia NLP Library ##
-[Imgur](http://i.imgur.com/uBV0r.jpg)
+![Imgur](http://i.imgur.com/uBV0r.jpg)
 
 These are scripts that use data available on Wikia for natural language processing.
 The results of these scripts can be reused for a variety of purposes 
@@ -7,6 +7,7 @@ The results of these scripts can be reused for a variety of purposes
 
 This is named after a goofy drawing I made one time of Noam Chomsky.
 And also because it chomps through text. Take your pick.
+This project in no way endorses Chomsky's views on linguistics. In fact, it flouts it.
 
 Written for the Wikia December 2012 Hackathon
 
