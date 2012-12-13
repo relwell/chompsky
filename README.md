@@ -1,5 +1,5 @@
 ## Chompsky - Wikia NLP Library ##
-![Noam Chompsky](http://imgur.com/uBV0r "Noam Chompsky")
+[Imgur](http://i.imgur.com/uBV0r.jpg)
 
 These are scripts that use data available on Wikia for natural language processing.
 The results of these scripts can be reused for a variety of purposes 
