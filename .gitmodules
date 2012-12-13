@@ -1,3 +1,6 @@
 [submodule "summarize"]
 	path = summarize
 	url = git@github.com:thavelick/summarize.git
+[submodule "nltk_contrib"]
+	path = nltk_contrib
+	url = https://github.com/nltk/nltk_contrib.git
