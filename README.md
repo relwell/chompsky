@@ -12,7 +12,8 @@ This project in no way endorses Chomsky's views on linguistics. In fact, it flou
 Written for the Wikia December 2012 Hackathon
 
 ## Requirements ##
-* [NLTK](http://nltk.googlecode.com)
+* [NLTK](https://github.com/nltk/nltk)
+* [NLTK Contrib](https://github.com/nltk/nltk)
 * [Pattern](https://github.com/clips/pattern)
 * [Summarize](https://github.com/thavelick/summarize)
 
