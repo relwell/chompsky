@@ -1,0 +1,3 @@
+[submodule "summarize"]
+	path = summarize
+	url = git@github.com:thavelick/summarize.git
