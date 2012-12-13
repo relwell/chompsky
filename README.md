@@ -16,6 +16,7 @@ Written for the Wikia December 2012 Hackathon
 * [NLTK Contrib](https://github.com/nltk/nltk)
 * [Pattern](https://github.com/clips/pattern)
 * [Summarize](https://github.com/thavelick/summarize)
+* [ARKRef](http://www.ark.cs.cmu.edu/ARKref)
 
 ## Scripts ##
 
