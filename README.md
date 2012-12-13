@@ -19,7 +19,7 @@ Written for the Wikia December 2012 Hackathon
 
 ## Scripts ##
 
-* *get-sentiment.py* -- A script that accesses text from Solr for a given wiki and namespace
+* **get-sentiment.py** -- A script that accesses text from Solr for a given wiki and namespace
 and determines the average sentiment (positive/negative) and objectivity (subjective/objective).
-* *get-named-entities.py* -- A script that accesses all named entities for a document
-* *summarize-doc.py* -- Summarizes the text of one or more documents
+* **get-named-entities.py** -- A script that accesses all named entities for a document
+* **summarize-doc.py** -- Summarizes the text of one or more documents
