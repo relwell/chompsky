@@ -11,12 +11,15 @@ This project in no way endorses Chomsky's views on linguistics. In fact, it flou
 
 Written for the Wikia December 2012 Hackathon
 
-## Requirements ##
+## Dependencies ##
 * [NLTK](https://github.com/nltk/nltk)
 * [NLTK Contrib](https://github.com/nltk/nltk)
 * [Pattern](https://github.com/clips/pattern)
 * [Summarize](https://github.com/thavelick/summarize)
 * [ARKRef](http://www.ark.cs.cmu.edu/ARKref)
+* [OpenNLP](http://opennlp.sourceforge.net/)
+* [WordNet](http://wordnet.princeton.edu/wordnet/download/current-version/)
+* [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml)
 
 ## Scripts ##
 
@@ -24,3 +27,4 @@ Written for the Wikia December 2012 Hackathon
 and determines the average sentiment (positive/negative) and objectivity (subjective/objective).
 * **get-named-entities.py** -- A script that accesses all named entities for a document
 * **summarize-doc.py** -- Summarizes the text of one or more documents
+* **ark-coref.py** -- Uses ARKRef to perform NER on a specific document
