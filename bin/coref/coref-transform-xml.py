@@ -73,7 +73,6 @@ def transform(folder, xmlfile):
         coreftransforms += coreftransform
     if len(coreftransforms) > 0:
         db.corefs.insert(coreftransforms)
-    #os.rm(path)
 
 for folder, subs, files in os.walk(options.dir):
     for xmlfile in files:
