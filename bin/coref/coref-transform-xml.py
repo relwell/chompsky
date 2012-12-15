@@ -34,11 +34,18 @@ def transform(folder, xmlfile):
     root = tree.getroot()
     corefs = root.iter('coreference')
     coreftransforms = []
-    for coref in corefs:
+    for i in range(0, len(corefs)):
+        coref = corefs[i]
         mentions = coref.findall('.//mention')
+        docid = os.path.splitext(xmlfile)[0]
+        corefid = docid+'_'+str(i)
+        wid, pageid = docid.split('_')
         coreftransform = \
               [\
-                {  'doc_id' : os.path.splitext(xmlfile)[0], \
+                {  'doc_id' : docid, \
+                   'wid' : wid, \
+                   'pageid' : pageid, \
+                   'corefid' : corefid, \
                    'phrase' :' '.join([root.find('.//sentence[@id="%s"]//token[@id="%s"]//word' \
                                                 % (mention.find('.//sentence').text, val)).text  \
                                         for val in range(int(mention.find('start').text), int(mention.find('end').text))\
