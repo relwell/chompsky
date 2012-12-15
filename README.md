@@ -28,3 +28,8 @@ and determines the average sentiment (positive/negative) and objectivity (subjec
 * **get-named-entities.py** -- A script that accesses all named entities for a document
 * **summarize-doc.py** -- Summarizes the text of one or more documents
 * **ark-coref.py** -- Uses ARKRef to perform NER on a specific document
+* **coref** -- a pipeline for extracting named entities out of Solr text and and storing in MongoDB. This includes:
+** **coref/coref-write-files.py** -- writes a raw file per wiki in a folder named after the wiki host
+** **coref/coref-attach-files.py** -- attaches a batch of files to Stanford CoreNLP's parser
+** **coref/coref-transform-xml.py** -- iterates over a directory, reads all XML files, and extracts, transforms, and loads the data into MongoDB
+** **coref/coref-etl-batch.py** -- attaches ETL scripts to particular directories

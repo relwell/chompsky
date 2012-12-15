@@ -34,11 +34,11 @@ def transform(folder, xmlfile):
     root = tree.getroot()
     corefs = root.iter('coreference')
     coreftransforms = []
-    for i in range(0, len(corefs)):
-        coref = corefs[i]
+    corefcount = 1
+    for coref in corefs:
         mentions = coref.findall('.//mention')
         docid = os.path.splitext(xmlfile)[0]
-        corefid = docid+'_'+str(i)
+        corefid = docid+'_'+str(corefcount)
         wid, pageid = docid.split('_')
         coreftransform = \
               [\
@@ -78,6 +78,7 @@ def transform(folder, xmlfile):
                 } \
               for mention in mentions]
         coreftransforms += coreftransform
+        corefcount += 1
     if len(coreftransforms) > 0:
         db.corefs.insert(coreftransforms)
 
