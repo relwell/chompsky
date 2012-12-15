@@ -28,6 +28,7 @@ and determines the average sentiment (positive/negative) and objectivity (subjec
 * **get-named-entities.py** -- A script that accesses all named entities for a document
 * **summarize-doc.py** -- Summarizes the text of one or more documents
 * **ark-coref.py** -- Uses ARKRef to perform NER on a specific document
+* **get-readability.py** -- Performs a number of readability tests on a provided document
 
 ## The Coref Pipeline ##
 This is a set of scripts respnsible for extracting named entities out of Solr text and and storing in MongoDB. This includes:
