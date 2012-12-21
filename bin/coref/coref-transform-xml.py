@@ -17,7 +17,7 @@ parser.add_option("-p", "--port", dest="port", action="store", default="27017",
                   help="The port of the MongoDB connection")
 parser.add_option("-b", "--dbname", dest="dbname", action="store", default="nlp",
                   help="The database name to use")
-parser.add_option("-x", "--delete", dest="delete", action="store", default=False,
+parser.add_option("-x", "--delete", dest="delete", action="store", default=True,
                   help="Whether to delete the folder when we are done with it")
 
 (options, args) = parser.parse_args()
@@ -84,6 +84,9 @@ def transform(folder, xmlfile):
 
 for folder, subs, files in os.walk(options.dir):
     for xmlfile in files:
-        transform(folder, xmlfile)
+        try:
+            transform(folder, xmlfile)
+        except:
+            pass
 if options.delete:
     shutil.rmtree(options.dir)

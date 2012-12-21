@@ -23,18 +23,18 @@ parser.add_option("-b", "--dbname", dest="dbname", action="store", default="nlp"
                   help="The database name to use")
 parser.add_option("-x", "--delete", dest="delete", action="store", default=False,
                   help="Whether to delete the folder when we are done with it")
-parser.add_option("-t", "--transformpath", dest="transformpath", action="store", default="/Users/relwell/wikia-nlp/coref/",
+parser.add_option("-t", "--transformpath", dest="transformpath", action="store", default="/Users/relwell/wikia-nlp/bin/coref/",
                   help="The path the ETL script is located at") #TODO: change default path
 
 
 (options, args) = parser.parse_args()
 
 
-procs = []
+procs = {}
 
 def clear_finished_processes(procs):
-    newprocs = []
-    for dirname in procs.keys:
+    newprocs = {}
+    for dirname in procs.keys():
         if Popen.poll(procs[dirname]) == None:
             newprocs[dirname] = procs[dirname]
         elif options.delete:
@@ -42,17 +42,15 @@ def clear_finished_processes(procs):
     return newprocs
 
 def spawn_process(folder):
-    args = [options.transformpath+'/coref-transform-xml.py', '--host='+options.host, '--port='+options.port, '--dbname='+options.dbname, '--dirname='+folder]
-    print args
+    args = ['python', options.transformpath+'/coref-transform-xml.py', '--host='+options.host, '--port='+options.port, '--dbname='+options.dbname, '--dir='+folder]
     return Popen(args)
 
 
 while True:
     dirs = os.listdir(options.poll)
-    if len(dirs) == 0:
-        continue
-    while len(procs) < options.threads:
+    while len(procs) < options.threads and len(dirs) > 0:
         folder = dirs.pop()
-        procs[folder] = spawn_process(options.poll + '/' + folder)
-        procs = clear_finished_processes(procs)
+        if folder not in procs.keys():
+            procs[folder] = spawn_process(options.poll + '/' + folder)
+            procs = clear_finished_processes(procs)
     sleep(1)
