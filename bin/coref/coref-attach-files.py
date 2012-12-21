@@ -34,8 +34,15 @@ if not os.path.exists(options.dest):
 Move a folder to a temp directory,
 configure and call the tagger subprocess,
 and delete the temp directory
+
+THIS ASSUMES YOUR RAW FILES ARE IN THE FOLLOWING FORMAT /path/to/root/wiki_host/chunk
 """
 def attach(folder):
+    path, chunk = os.path.split(folder)
+    remainder, wiki = os.path.split(path)
+    destination = options.dest + '/' + wiki
+    if not os.path.exists(destination):
+        os.mkdir(destination)
     args = ['java', '-cp']
     jarfiles = ['stanford-corenlp-1.3.4.jar', 'stanford-corenlp-1.3.4-models.jar', 'xom.jar', 'joda-time.jar', 'jollyday.jar']
     args.append(':'.join([options.nlppath+'/'+jarfile for jarfile in jarfiles]))
@@ -49,7 +56,7 @@ def attach(folder):
     args.append(options.threads)
     args.append('-replaceExtension')
     args.append('-outputDirectory')
-    args.append(options.dest)
+    args.append(destination)
     shutil.move(folder, TEMPDIR)
     subprocess.call(args)
     shutil.rmtree(TEMPDIR)
